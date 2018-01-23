@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.alex.githubreposearch.utilities.NetworkUtils;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mUrlDisplayTextView;
 
-    TextView mSearchResults;
+    TextView mSearchResultsTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
 
-        mSearchResults = (TextView) findViewById(R.id.tv_github_search_results_json);
+        mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
     }
 
     @Override
@@ -39,10 +40,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void makeGithubQuery(){
+    public void makeGithubSearchQuery(){
         String githubQuery = mSearchBoxEditText.getText().toString();
         URL githubSearchUrl = NetworkUtils.buildUrl(githubQuery);
         mUrlDisplayTextView.setText(githubSearchUrl.toString());
+        String githubSearchResults = null;
+        try{
+            githubSearchResults = NetworkUtils.getResponseFromHttpUrl(githubSearchUrl);
+            mSearchResultsTextView.setText(githubSearchResults);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 //            Context context = MainActivity.this;
 //            String message = "Search clicked!";
 //            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-            makeGithubQuery();
+            makeGithubSearchQuery();
             return true;
         }
 
