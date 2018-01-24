@@ -20,19 +20,32 @@
         android:text="Enter a search query and you URL will show up here!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <ScrollView
+    
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_github_search_results_json"
+                android:text="Make a search and  your results will show up here!"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </ScrollView>
 
         <TextView
-            android:id="@+id/tv_github_search_results_json"
-            android:text="Make a search and  your results will show up here!"
-            android:textSize="18sp"
+            android:id="@+id/tv_error_message_display"
+            android:text="@string/error_message"
+            android:textSize="22sp"
+            android:padding="16dp"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-    </ScrollView>
+    </FrameLayout>
 
 </LinearLayout>

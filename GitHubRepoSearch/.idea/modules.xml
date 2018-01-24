@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GitHubRepoSearch.iml" filepath="$PROJECT_DIR$/GitHubRepoSearch.iml" />
-      <module fileurl="file://C:\Users\alex.lopes\Documents\Andrioid Studio\Desenvolvendo_Apps_Android\GitHubRepoSearch\GitHubRepoSearch.iml" filepath="C:\Users\alex.lopes\Documents\Andrioid Studio\Desenvolvendo_Apps_Android\GitHubRepoSearch\GitHubRepoSearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\alex.lopes\Documents\Andrioid Studio\Desenvolvendo_Apps_Android\GitHubRepoSearch\app\app.iml" filepath="C:\Users\alex.lopes\Documents\Andrioid Studio\Desenvolvendo_Apps_Android\GitHubRepoSearch\app\app.iml" />
     </modules>
   </component>
 </project>

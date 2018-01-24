@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mSearchResultsTextView;
 
+    TextView mErrorMessagetextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         mUrlDisplayTextView = (TextView) findViewById(R.id.tv_url_display);
 
         mSearchResultsTextView = (TextView) findViewById(R.id.tv_github_search_results_json);
+
+        mErrorMessagetextView = (TextView) findViewById(R.id.tv_error_message_display);
     }
 
     @Override
@@ -49,6 +54,16 @@ public class MainActivity extends AppCompatActivity {
         String githubSearchResults = null;
         new GithubQueryTask().execute(githubSearchUrl);
 
+    }
+
+    private void showJsondataView(){
+        mErrorMessagetextView.setVisibility(View.INVISIBLE);
+        mSearchResultsTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showErrorMessage(){
+        mSearchResultsTextView.setVisibility(View.INVISIBLE);
+        mErrorMessagetextView.setVisibility(View.VISIBLE);
     }
 
     public class GithubQueryTask extends AsyncTask<URL, Void, String> {
@@ -68,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s){
             if(s !=null && !s.equals("")){
                 mSearchResultsTextView.setText(s);
+            } else {
+                showErrorMessage();
             }
         }
     }
