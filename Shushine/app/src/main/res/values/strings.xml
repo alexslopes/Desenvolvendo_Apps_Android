@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Shushine</string>
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
@@ -61,5 +61,6 @@
     <string name="condition_962">Hurricane</string>
 
     <string name="condition_unknown">Unknown (<xliff:g id="conditionId">%1$d</xliff:g>)</string>
-
+    <string name="action_refresh">Refresh</string>
+    <string name="error_message">Error to load!</string>
 </resources>
